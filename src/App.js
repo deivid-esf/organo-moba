@@ -36,7 +36,6 @@ function App() {
   const [herois, setHerois] = useState([]);
 
   const novoHeroiAdicionado = (heroi) => {
-    debugger
     setHerois([...herois, heroi]);
   };
   return (
