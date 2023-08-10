@@ -1,0 +1,29 @@
+/* src/componentes/Rodape/index.js */
+
+.footer {
+  background: #6278F7;
+  color: #FFF;
+  padding: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer ul li {
+  display: inline-block;
+  margin-right: 32px;
+}
+
+.footer ul li:last-child {
+  margin-right: 0;
+}
+.logo-rodape{
+  width: 250px;
+}
+.nome-rodape a{
+  text-decoration: none;
+  color: #283580;
+}
+.nome-rodape a:hover{
+  opacity: .8;
+}
