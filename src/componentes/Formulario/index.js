@@ -1,47 +1,59 @@
 import "./Formulario.css";
-import CampoTexto from "../CampoTexto";
+import Campo from "../Campo";
 import ListaSuspensa from "../ListaSuspensa";
 import Botao from "../Botao";
 import { useState } from "react";
 
 const Formulario = (props) => {
-  const [nome, setNome] = useState("");
+  const [heroi, setHeroi] = useState("");
   const [funcao, setFuncao] = useState("");
   const [imagem, setImagem] = useState("");
   const [lane, setLane] = useState("");
+  const [nomeLane, setNomeLane] = useState("");
+  const [corLane, setCorLane] = useState("");
 
-  const aoSalvar = (e) => {
+  const adicionarHeroi = (e) => {
     e.preventDefault();
     props.heroiCadastrado({
-      nome,
+      heroi,
       funcao,
       imagem,
       lane,
     });
-    setNome('')
+    setHeroi('')
     setFuncao('')
     setImagem('')
     setLane('')
   };
+
+  const adicionarLane = (e) => {
+    e.preventDefault();
+    props.cadastrarLane({
+      nome: nomeLane,
+      cor: corLane
+    })
+    setNomeLane('')
+    setCorLane('')
+  }
   return (
     <section className="formulario">
-      <form onSubmit={aoSalvar}>
+      <form onSubmit={adicionarHeroi}>
         <h2>Preencha os dados para criar o card do herói</h2>
-        <CampoTexto
+        <Campo
           required={true}
           label="Nome"
           placeholder="Digite o nome do herói"
-          valor={nome}
-          aoAlterado={(valor) => setNome(valor)}
+          valor={heroi}
+          aoAlterado={(valor) => setHeroi(valor)}
         />
-        <CampoTexto
+        <Campo
           required={true}
           label="Função"
           placeholder="Digite a função do herói"
           valor={funcao}
           aoAlterado={(valor) => setFuncao(valor)}
         />
-        <CampoTexto
+        <Campo
           required={false}
           label="Imagem"
           placeholder="Digite o endereço da imagem"
@@ -56,6 +68,23 @@ const Formulario = (props) => {
           aoAlterado={(valor) => setLane(valor)}
         />
         <Botao>Criar card</Botao>
+      </form>
+      <form onSubmit={adicionarLane}>
+        <h2>Preencha os dados para criar uma lane nova</h2>
+        <Campo
+          required
+          label="Nome"
+          placeholder="Digite o nome da lane"
+          valor={nomeLane}
+          aoAlterado={(valor) => setNomeLane(valor)}
+        />
+        <Campo
+          type="color"
+          valor={corLane}
+          onChange={(e) => setCorLane(e.target.value)}
+        />
+
+        <Botao>Criar time</Botao>
       </form>
     </section>
   );

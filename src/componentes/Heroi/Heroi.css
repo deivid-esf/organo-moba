@@ -1,13 +1,16 @@
 .heroi {
   width: 280px;
   margin-bottom: 32px;
+  position: relative;
 }
 
 .heroi .cabecalho {
   border-radius: 10px 10px 0px 0px;
 }
 .heroi img {
-  width: 100px;
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
   border-radius: 50%;
   position: relative;
   bottom: -50px;
@@ -34,4 +37,9 @@
   line-height: 22px;
   color: #212121;
   padding: 0 16px;
+}
+.deletar{
+  position: absolute;
+  right: -10px;
+  top: -10px;
 }
