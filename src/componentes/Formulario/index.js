@@ -81,7 +81,7 @@ const Formulario = (props) => {
         <Campo
           type="color"
           valor={corLane}
-          onChange={(e) => setCorLane(e.target.value)}
+          aoAlterado={(valor) => setCorLane(valor)}
         />
 
         <Botao>Criar time</Botao>
